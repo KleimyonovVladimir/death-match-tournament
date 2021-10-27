@@ -15,20 +15,22 @@
 </head>
 
 <body>
-  <div class="login-wrapper">
-    <div class="login">
+  <div class="auth-wrap">
+    <div class="auth-card">
       <div class="logo"></div>
       <h1 class="title">Sign in</h1>
-      <form action="#" class="form" autocomplete="off">
-        <div class="txt-field">
-          <label for="email" class="input-name">Email:</label>
-          <input id="email" type="email" placeholder="Enter your email" required>
+      <form action="#" class="auth-form" autocomplete="off">
+        <div class="auth-form__fields-wrap">
+          <div class="auth-form__txt-field">
+            <label for="email" class="input-name">Email:</label>
+            <input id="email" type="email" placeholder="Enter your email" required>
+          </div>
+          <div class="auth-form__txt-field">
+            <label for="password" class="input-name">Password:</label>
+            <input id="password" type="password" placeholder="Enter your password" required>
+          </div>
         </div>
-        <div class="txt-field last">
-          <label for="password" class="input-name">Password:</label>
-          <input id="password" type="password" placeholder="Enter your password" required>
-        </div>
-        <div class="btn-wrap">
+        <div class="auth-form__btn-wrap">
           <button type="submit" class="btn-submit button">
             <span class=" button__text">Login</span>
           </button>
