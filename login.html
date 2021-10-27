@@ -5,34 +5,41 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- CSS -->
   <link rel="stylesheet" href="./css/main.css">
   <title>DeathMatch Tournaments</title>
 </head>
 
 <body>
-  <div class="login">
-    <div class="logo"></div>
-    <h1 class="title">Sign in</h1>
-    <form action="#" class="form">
-      <div class="txt-field">
-        <label for="email" class="input-name">Email:</label>
-        <input id="email" type="email" placeholder="Enter your email" required>
-      </div>
-      <div class="txt-field last">
-        <label for="password" class="input-name">Password:</label>
-        <input id="password" type="password" placeholder="Enter your password" required>
-      </div>
-      <div class="btn-wrap">
-        <button type="submit" class="btn-submit button">
-          <span class=" button__text">Login</span>
-        </button>
-        <a href="#" class="registration-link">Registration</a>
-      </div>
-    </form>
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <div class="logo"></div>
+      <h1 class="title">Sign in</h1>
+      <form action="#" class="auth-form" autocomplete="off">
+        <div class="auth-form__fields-wrap">
+          <div class="auth-form__txt-field">
+            <label for="email" class="input-name">Email:</label>
+            <input id="email" type="email" placeholder="Enter your email" required>
+          </div>
+          <div class="auth-form__txt-field">
+            <label for="password" class="input-name">Password:</label>
+            <input id="password" type="password" placeholder="Enter your password" required>
+          </div>
+        </div>
+        <div class="auth-form__btn-wrap">
+          <button type="submit" class="btn-submit button">
+            <span class=" button__text">Login</span>
+          </button>
+          <a href="#" class="registration-link">Registration</a>
+        </div>
+      </form>
+    </div>
   </div>
+
   <script src="./js/main.js"></script>
 </body>
 

@@ -5,28 +5,6 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Poppins", sans-serif;
-  color: rgba(255, 255, 255, 0.4);
-  background: linear-gradient(
-      72.44deg,
-      rgba(10, 10, 10, 0.85) 0%,
-      rgba(38, 29, 56, 0.6375) 100%
-    ),
-    url(../img/login-bg.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-body::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  color: rgba(0, 0, 0, 0.4);
-  background: linear-gradient(
-    72.44deg,
-    rgba(10, 10, 10, 0.85) 0%,
-    rgba(38, 29, 56, 0.6375) 100%
-  );
-  z-index: 1;
 }
 a {
   display: block;
@@ -72,16 +50,35 @@ input {
   font-size: 18px;
   background: #383a49;
   border-radius: 5px;
-  padding: 16px 76px 16px 20px;
+  padding: 16px 20px;
   color: #fff;
   line-height: 1.5em;
   width: 380px;
 }
-.login {
+.auth-wrap {
+  background: url(../img/login-bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top right;
+  height: 100vh;
+}
+.auth-wrap::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(
+    72.44deg,
+    rgba(10, 10, 10, 0.85) 0%,
+    rgba(38, 29, 56, 0.6375) 100%
+  );
+  z-index: 1;
+}
+.auth-card {
   background: #1f222f;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
   padding: 35px 35px 45px;
-  border-radius: 10px;
+  border-radius: 5px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -97,17 +94,19 @@ input {
 .title {
   padding: 40px 0 35px;
 }
-.txt-field {
-  margin-bottom: 25px;
+.auth-form__fields-wrap {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-row-gap: 25px;
 }
-.last {
+.auth-form__txt-field:last-child {
   margin-bottom: 0;
 }
 .input-name {
   margin-bottom: 5px;
   color: #d0cfd9;
 }
-.btn-wrap {
+.auth-form__btn-wrap {
   margin-top: 40px;
 }
 .btn-submit {
@@ -118,11 +117,10 @@ input {
 }
 .registration-link {
   color: #6a6878;
-  font-size: 18px;
   font-weight: 500;
   transition: 0.2s;
   display: inline-block;
-  margin-left: 40px;
+  margin-left: 20px;
 }
 .registration-link:hover {
   color: #fff;
