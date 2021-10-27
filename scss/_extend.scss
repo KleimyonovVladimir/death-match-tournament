@@ -1,0 +1,25 @@
+%center-block-shared {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+%buttons-styles-shared {
+  border-radius: 5px;
+  padding: 13px 35px;
+}
+%button-spinner {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border: 4px solid transparent;
+  border-top-color: $white;
+  border-radius: 50%;
+  animation: button-loading-spinner 1s ease infinite;
+}
