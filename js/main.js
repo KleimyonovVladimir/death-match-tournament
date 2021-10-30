@@ -1,13 +1,13 @@
-const theButton = document.querySelector(".button");
+const button = document.querySelector(".button-submit");
 
-theButton.addEventListener("click", () => {
-  theButton.classList.add("button-loading");
+button.addEventListener("click", () => {
+  button.classList.add("button-loading");
 
-  theButton.disabled = true;
+  button.disabled = true;
 
   const addLoadingTimeOutId = setTimeout(() => {
-    theButton.classList.remove("button-loading");
+    button.classList.remove("button-loading");
     clearTimeout(addLoadingTimeOutId)
-    theButton.disabled = false;
+    button.disabled = false;
   }, 3000)
 })
