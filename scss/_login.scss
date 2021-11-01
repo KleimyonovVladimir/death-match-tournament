@@ -1,0 +1,50 @@
+.auth {
+  &-wrap {
+    background: url(../img/login-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top right;
+    height: 100vh;
+    &::after {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background: $dark-layer;
+      z-index: 1;
+    }
+  }
+  &-card {
+    background: $background-color;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
+    padding: 35px 35px 45px;
+    border-radius: 5px;
+    @extend %center-block-shared;
+    z-index: 2;
+  }
+  &-form__fields-wrap {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-rows: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-row-gap: 25px;
+  }
+  &-form__button-wrap {
+    margin-top: 40px;
+  }
+}
+
+.title {
+  padding: 40px 0 35px;
+}
+
+.registration-link {
+  color: $dark-gray;
+  font-weight: 500;
+  transition: 0.2s;
+  display: inline-block;
+  margin-left: 20px;
+  &:hover {
+    color: $white;
+  }
+}
