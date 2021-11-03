@@ -56,3 +56,27 @@
   margin: 0 auto;
   padding: 0 15px;
 }
+.rating-status {
+  font-size: 12px;
+  color: $white;
+  font-weight: bold;
+  border-radius: 100px;
+  text-align: center;
+  padding: 3px 10px;
+  letter-spacing: 0.02em;
+  &.organizer {
+    background-color: $organizer-status;
+  }
+  &.novice {
+    background-color: $novice-status;
+  }
+  &.amateur {
+    background-color: $amateur-status;
+  }
+  &.expert {
+    background-color: $expert-status;
+  }
+  &.all {
+    background-color: $input-color;
+  }
+}

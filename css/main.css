@@ -155,6 +155,36 @@ input {
   padding: 0 15px;
 }
 
+.rating-status {
+  font-size: 12px;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 100px;
+  text-align: center;
+  padding: 3px 10px;
+  letter-spacing: 0.02em;
+}
+
+.rating-status.organizer {
+  background-color: #fa8c0b;
+}
+
+.rating-status.novice {
+  background-color: #533ee1;
+}
+
+.rating-status.amateur {
+  background-color: #4dc1ac;
+}
+
+.rating-status.expert {
+  background-color: #e13eb3;
+}
+
+.rating-status.all {
+  background-color: #383a49;
+}
+
 .auth-wrap {
   background: url(../img/login-bg.jpg);
   background-repeat: no-repeat;
@@ -229,18 +259,23 @@ input {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: max-content 1fr 1fr;
-      grid-template-columns: -webkit-max-content 1fr 1fr;
-      grid-template-columns: max-content 1fr 1fr;
-  grid-gap: 55px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .header-list__item {
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
+  margin-right: 55px;
+}
+
+.header-list__item:last-child {
+  margin-right: 0;
 }
 
 .header-list__link {
@@ -251,20 +286,21 @@ input {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: rgba(255, 255, 255, 0.4);
+  color: #fff;
+  opacity: 0.4;
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
 
-.header-list__link:hover {
-  color: #fff;
+.header-list__link:hover, .header-list__link.active {
+  opacity: 1;
 }
 
 .header-list__icon {
   margin-right: 10px;
 }
 
-.profile-block {
+.header-profile {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr;
@@ -277,15 +313,5 @@ input {
   width: -moz-min-content;
   width: min-content;
   margin-left: auto;
-}
-
-.profile-block__status {
-  color: #fff;
-  font-weight: bold;
-  border: 1px solid #fa8c0b;
-  border-radius: 100px;
-  text-align: center;
-  background-color: #fa8c0b;
-  padding: 0 10px;
 }
 /*# sourceMappingURL=main.css.map */
