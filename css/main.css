@@ -1,6 +1,6 @@
 * {
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 body {
@@ -71,12 +71,35 @@ input {
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 .button {
   border-radius: 5px;
   padding: 13px 35px;
+}
+
+.logo {
+  background-image: url(../img/logo.png);
+  background-repeat: no-repeat;
+  width: 31px;
+  height: 22px;
+}
+
+.input-name {
+  display: inline-block;
+  margin-bottom: 5px;
+  color: #d0cfd9;
+}
+
+.button-submit {
+  background: linear-gradient(89.91deg, #4b00ed 1.67%, #8814fa 97.32%);
+  position: relative;
+}
+
+.button-loading .button__text {
+  visibility: hidden;
+  opacity: 0;
 }
 
 .button-loading::after {
@@ -93,7 +116,29 @@ input {
   border-top-color: #fff;
   border-radius: 50%;
   -webkit-animation: button-loading-spinner 1s ease infinite;
-  animation: button-loading-spinner 1s ease infinite;
+          animation: button-loading-spinner 1s ease infinite;
+}
+
+@-webkit-keyframes button-loading-spinner {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes button-loading-spinner {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
 }
 
 .auth-wrap {
@@ -109,18 +154,14 @@ input {
   position: absolute;
   height: 100%;
   width: 100%;
-  background: linear-gradient(
-    72.44deg,
-    rgba(10, 10, 10, 0.85) 0%,
-    rgba(38, 29, 56, 0.6375) 100%
-  );
+  background: linear-gradient(72.44deg, rgba(10, 10, 10, 0.85) 0%, rgba(38, 29, 56, 0.6375) 100%);
   z-index: 1;
 }
 
 .auth-card {
   background: #1f222f;
   -webkit-box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
   padding: 35px 35px 45px;
   border-radius: 5px;
   z-index: 2;
@@ -138,30 +179,8 @@ input {
   margin-top: 40px;
 }
 
-.logo {
-  background-image: url(../img/logo.png);
-  background-repeat: no-repeat;
-  width: 31px;
-  height: 22px;
-}
-
 .title {
   padding: 40px 0 35px;
-}
-
-.input-name {
-  margin-bottom: 5px;
-  color: #d0cfd9;
-}
-
-.button-submit {
-  background: linear-gradient(89.91deg, #4b00ed 1.67%, #8814fa 97.32%);
-  position: relative;
-}
-
-.button-loading .button__text {
-  visibility: hidden;
-  opacity: 0;
 }
 
 .registration-link {
@@ -175,27 +194,5 @@ input {
 
 .registration-link:hover {
   color: #fff;
-}
-
-@-webkit-keyframes button-loading-spinner {
-  from {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes button-loading-spinner {
-  from {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  to {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
 }
 /*# sourceMappingURL=main.css.map */
