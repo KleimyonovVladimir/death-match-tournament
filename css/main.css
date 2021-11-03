@@ -7,6 +7,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Poppins", sans-serif;
+  background: #131326;
 }
 
 a {
@@ -75,6 +76,7 @@ input {
 }
 
 .button {
+  color: #fff;
   border-radius: 5px;
   padding: 13px 35px;
 }
@@ -92,9 +94,15 @@ input {
   color: #d0cfd9;
 }
 
-.button-submit {
+.button-primary {
   background: linear-gradient(89.91deg, #4b00ed 1.67%, #8814fa 97.32%);
   position: relative;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.button-primary:hover {
+  opacity: 0.9;
 }
 
 .button-loading .button__text {
@@ -139,6 +147,12 @@ input {
     -webkit-transform: rotate(360deg);
             transform: rotate(360deg);
   }
+}
+
+.container {
+  width: 1790px;
+  margin: 0 auto;
+  padding: 0 15px;
 }
 
 .auth-wrap {
@@ -194,5 +208,84 @@ input {
 
 .registration-link:hover {
   color: #fff;
+}
+
+#header {
+  background-color: #1f222f;
+  padding: 16px 0;
+}
+
+.header-content {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header-list {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: max-content 1fr 1fr;
+      grid-template-columns: -webkit-max-content 1fr 1fr;
+      grid-template-columns: max-content 1fr 1fr;
+  grid-gap: 55px;
+}
+
+.header-list__item {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.header-list__link {
+  font-size: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: rgba(255, 255, 255, 0.4);
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.header-list__link:hover {
+  color: #fff;
+}
+
+.header-list__icon {
+  margin-right: 10px;
+}
+
+.profile-block {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 30px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  margin-left: auto;
+}
+
+.profile-block__status {
+  color: #fff;
+  font-weight: bold;
+  border: 1px solid #fa8c0b;
+  border-radius: 100px;
+  text-align: center;
+  background-color: #fa8c0b;
+  padding: 0 10px;
 }
 /*# sourceMappingURL=main.css.map */

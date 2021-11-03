@@ -12,9 +12,13 @@
 .button {
   @extend %buttons-styles-shared;
 
-  &-submit {
+  &-primary {
     background: $primary-color;
     position: relative;
+    transition: 0.2s;
+    &:hover {
+      opacity: 0.9;
+    }
   }
   &-loading {
     & .button__text {
@@ -46,4 +50,9 @@
   to {
     transform: rotate(360deg);
   }
+}
+.container {
+  width: 1790px;
+  margin: 0 auto;
+  padding: 0 15px;
 }
