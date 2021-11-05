@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 html {
   height: 100%;
@@ -7,7 +8,6 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: "Poppins", sans-serif;
   background: $body-background;
   color: $font-color;
   height: 100%;
@@ -55,18 +55,25 @@ button {
   cursor: pointer;
   border: none;
 }
-input {
+input,
+textarea {
   border: none;
   outline: none;
-  font-weight: 400;
-  display: block;
-  font-size: 18px;
-  background: $input-color;
   border-radius: 5px;
   padding: 16px 20px;
+  background: $input-color;
+  font-size: 18px;
   color: $white;
+  width: 100%;
+}
+input {
+  font-weight: 400;
+  display: block;
   line-height: 1.5em;
-  width: 380px;
+}
+textarea {
+  height: 150px;
+  resize: none;
 }
 section {
   height: 100%;

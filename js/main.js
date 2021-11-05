@@ -54,3 +54,32 @@ if (matchList) {
     matchList.insertAdjacentHTML('beforeend', htmlMatch)
   })
 }
+
+const onMatchCreate = (event) => {
+  event.preventDefault();
+
+  const { value: logoUrl } = document.getElementById('logoUrl')
+  const { value: title } = document.getElementById('title')
+  const { value: map } = document.getElementById('map')
+  const { value: description } = document.getElementById('description')
+  const { value: maxPlayers } = document.getElementById('maxPlayers')
+
+  const match = {
+    logoUrl,
+    date: "Sep 01 at 09:00 PM",
+    title,
+    rate: "Novice",
+    map,
+    description,
+    players: [0, 12, 3, 0],
+    maxPlayers
+  }
+  console.log("🚀 ~ onMatchCreate ~ match", match)
+}
+
+
+// 1. Получить все поля
+// 2. Создать объект match, в котором буду все новые поля + поля по умолчанию
+// 3. Вывести в консоль новый объект
+// 4. Положить новый элемент в массив matches (spread) 
+// 5*. Обернуть перебор цикла 50-56 в функцию

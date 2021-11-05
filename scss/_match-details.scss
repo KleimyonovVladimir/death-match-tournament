@@ -51,16 +51,7 @@
       align-items: center;
       margin-top: auto;
     }
-    &__edit-button {
-      padding: 13px 40px;
-      border: 1px solid $font-color;
-      border-radius: 5px;
-      opacity: 0.4;
 
-      &:hover {
-        opacity: 1;
-      }
-    }
     &__delete-button {
       display: flex;
       align-items: center;
