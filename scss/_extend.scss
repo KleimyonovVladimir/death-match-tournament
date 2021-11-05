@@ -7,7 +7,8 @@
 %buttons-styles-shared {
   color: $white;
   border-radius: 5px;
-  padding: 10px 30px;
-  line-height: 1em;
+  padding: 0 30px;
   font-size: 16px;
+  transition: 0.2s;
+  height: 50px;
 }

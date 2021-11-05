@@ -44,7 +44,7 @@
         <div class="header-profile">
           <div class="rating-status organizer">Organizer</div>
           <img src="./img/avatar.png" alt="Avatar">
-          <a href="#" class="button button-primary">Create</a>
+          <button id="create-match" class="button button-primary">Create</button>
         </div>
       </div>
     </div>
@@ -57,7 +57,44 @@
     </div>
   </div>
 
+  <div id="modal-overlay" class="overlay">
+    <div class="modal">
+      <div class="modal__title">Create new Match</div>
+      <span onclick="cancel()" class="modal__cross">&times;</span>
+      <form onsubmit="onMatchCreate(event)">
+        <div class="modal__match-form">
+          <div>
+            <label for="title" class="input-name">Match name:</label>
+            <input id="title" type="text" placeholder="Enter the match name" required />
+          </div>
+          <div>
+            <label for="map" class="input-name">Map:</label>
+            <input id="map" type="text" placeholder="Enter the map name" required />
+          </div>
+          <div>
+            <label for="logoUrl" class="input-name">Match logo:</label>
+            <input id="logoUrl" type="text" placeholder="Upload the match logo" required />
+          </div>
+          <div>
+            <label for="maxPlayers" class="input-name">Number of players:</label>
+            <input id="maxPlayers" type="text" placeholder="Enter the number of players" required />
+          </div>
+          <div class="description">
+            <label for="description" class="input-name">Description:</label>
+            <textarea id="description" placeholder="Enter the description of the match" required></textarea>
+          </div>
+        </div>
+        <div class="modal__match-buttons">
+          <button onclick="cancel()" type="button" class="button outlined close">Cancel</button>
+          <button type="submit" class="button button-primary">Create</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <script src="./js/main.js"></script>
+  <script src="./js/modal.js"></script>
+
 </body>
 
 </html>
