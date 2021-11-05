@@ -55,6 +55,7 @@
   max-width: 1920px;
   margin: 0 auto;
   padding: 0 50px;
+  height: 100%;
 }
 .rating-status {
   font-size: 12px;
@@ -81,6 +82,10 @@
     background-color: $input-color;
   }
 }
-.content-wrap {
-  padding-top: 45px;
+.app {
+  padding: 40px 0;
+  height: calc(100% - 69px);
+}
+.divider {
+  border-bottom: 1px solid;
 }
