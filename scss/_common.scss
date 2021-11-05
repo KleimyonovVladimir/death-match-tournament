@@ -21,7 +21,7 @@
     }
   }
   &-loading {
-    & .button__text {
+    .button__text {
       visibility: hidden;
       opacity: 0;
     }
@@ -52,9 +52,9 @@
   }
 }
 .container {
-  width: 1790px;
+  max-width: 1920px;
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 0 50px;
 }
 .rating-status {
   font-size: 12px;
@@ -64,6 +64,7 @@
   text-align: center;
   padding: 3px 10px;
   letter-spacing: 0.02em;
+  width: fit-content;
   &.organizer {
     background-color: $organizer-status;
   }
@@ -79,4 +80,7 @@
   &.all {
     background-color: $input-color;
   }
+}
+.content-wrap {
+  padding-top: 45px;
 }
