@@ -1,13 +1,56 @@
-// const button = document.querySelector(".button-submit");
+const matches = [
+  {
+    logoUrl: "./img/matches/logo-1.png",
+    date: "Sep 01 at 09:00 PM",
+    title: "CS:GO Eleague Premier 2021",
+    rate: "Novice",
+    map: "Inferno",
+    description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout",
+    players: [0, 12, 3, 0],
+    maxPlayers: 24
+  },
+  {
+    logoUrl: "./img/matches/logo-1.png",
+    date: "Oct 01 at 9:00 PM",
+    title: "CS:GO Eleague Premier",
+    rate: "Amateur",
+    map: "Dust",
+    description: "It is a t",
+    players: [1, 2, 1, 1, 0, 1,],
+    maxPlayers: 8
+  }
+]
 
-// button.addEventListener("click", () => {
-//   button.classList.add("button-loading");
+const generateMatchHtml = (match) => {
+  const { logoUrl, date, title, rate, map, description, players, maxPlayers } = match
 
-//   button.disabled = true;
+  return `
+  <li class="match">
+    <div class="match__data divider">
+      ${logoUrl ? `<div class="match__logo-wrap"><img src="${logoUrl}" alt="${title}"></div>` : ''}
+      <div class="match__info">
+        <span class="match__date">${date}</span>
+        <h3 class="match__title"><a href="match-details.html">${title}</a></h3>
+        <div class="rating-status ${rate.toLowerCase()}">${rate}</div>
+        <div class="match__map">Map: <span>${map}</span></div>
+      </div>
+    </div>
+    <div class="match__description">${description}</div>
+    <div class="match__footer">
+      <div class="match__players">${(players || []).length}/${maxPlayers} Signed</div>
+      <a href="match-details.html" class="match__details-arrow">
+        <img src="./img/arrow-right.png" alt="Arrow Right">
+      </a>
+    </div>
+  </li>`
+}
 
-//   const addLoadingTimeOutId = setTimeout(() => {
-//     button.classList.remove("button-loading");
-//     clearTimeout(addLoadingTimeOutId)
-//     button.disabled = false;
-//   }, 3000)
-// })
+const matchList = document.getElementById('matches__list')
+
+if (matchList) {
+  matches.forEach((match) => {
+    const htmlMatch = generateMatchHtml(match)
+
+    matchList.insertAdjacentHTML('beforeend', htmlMatch)
+  })
+}
