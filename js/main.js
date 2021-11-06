@@ -1,5 +1,39 @@
-const matches = [
+const LS_MATCHES_KEY = 'LocalStorage/Matches'
+
+// HELPERS -------------------------------
+
+//generates random id
+const guid = () => {
+  const s4 = () => {
+    return Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1);
+  }
+  //return id of format 'aaaaaaaa'-'aaaa'-'aaaa'-'aaaa'-'aaaaaaaaaaaa'
+  return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+}
+
+// MODAL ---------------------------------
+
+const overlay = document.getElementById("modal-overlay");
+const create = document.getElementById("create-match");
+
+create.onclick = () => overlay.style.display = "block";
+
+document.onclick = (event) => {
+  if (event.target == overlay) {
+    overlay.style.display = "none";
+  }
+}
+
+const cancel = () => overlay.style.display = "none";
+
+
+// INITIAL SETTINGS ----------------------
+
+const initialMatches = [
   {
+    id: guid(),
     logoUrl: "./img/matches/logo-1.png",
     date: "Sep 01 at 09:00 PM",
     title: "CS:GO Eleague Premier 2021",
@@ -10,16 +44,25 @@ const matches = [
     maxPlayers: 24
   },
   {
+    id: guid(),
     logoUrl: "./img/matches/logo-1.png",
     date: "Oct 01 at 9:00 PM",
     title: "CS:GO Eleague Premier",
     rate: "Amateur",
     map: "Dust",
-    description: "It is a t",
-    players: [1, 2, 1, 1, 0, 1,],
+    description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout",
+    players: [1, 2, 1, 1, 0, 1],
     maxPlayers: 8
   }
 ]
+
+if (!JSON.parse(localStorage.getItem(LS_MATCHES_KEY))) {
+  localStorage.setItem(LS_MATCHES_KEY, JSON.stringify(initialMatches))
+}
+
+const localMatches = JSON.parse(localStorage.getItem(LS_MATCHES_KEY))
+
+// RENDER MATCHES ----------------------
 
 const generateMatchHtml = (match) => {
   const { logoUrl, date, title, rate, map, description, players, maxPlayers } = match
@@ -45,17 +88,32 @@ const generateMatchHtml = (match) => {
   </li>`
 }
 
-const matchList = document.getElementById('matches__list')
+const renderMatches = (matches) => {
+  const matchList = document.getElementById('matches__list')
 
-if (matchList) {
-  matches.forEach((match) => {
-    const htmlMatch = generateMatchHtml(match)
+  if (matchList) {
+    matchList.innerHTML = ''
+    matches.forEach((match) => {
+      const htmlMatch = generateMatchHtml(match)
 
-    matchList.insertAdjacentHTML('beforeend', htmlMatch)
-  })
+      matchList.innerHTML += htmlMatch
+    })
+  }
+
+}
+renderMatches(localMatches)
+
+// ADD MATCH ----------------------
+
+const clearMatchInputs = () => {
+  document.getElementById('logoUrl').value = '';
+  document.getElementById('title').value = '';
+  document.getElementById('map').value = '';
+  document.getElementById('description').value = '';
+  document.getElementById('maxPlayers').value = '';
 }
 
-const onMatchCreate = (event) => {
+const onCreateMatch = (event) => {
   event.preventDefault();
 
   const { value: logoUrl } = document.getElementById('logoUrl')
@@ -65,21 +123,23 @@ const onMatchCreate = (event) => {
   const { value: maxPlayers } = document.getElementById('maxPlayers')
 
   const match = {
+    id: guid(),
     logoUrl,
     date: "Sep 01 at 09:00 PM",
     title,
     rate: "Novice",
     map,
     description,
-    players: [0, 12, 3, 0],
+    players: [],
     maxPlayers
   }
-  console.log("🚀 ~ onMatchCreate ~ match", match)
+
+  const oldMatches = JSON.parse(localStorage.getItem(LS_MATCHES_KEY))
+  const newMatches = [match, ...oldMatches]
+
+  localStorage.setItem(LS_MATCHES_KEY, JSON.stringify(newMatches))
+
+  renderMatches(newMatches)
+  cancel()
+  clearMatchInputs()
 }
-
-
-// 1. Получить все поля
-// 2. Создать объект match, в котором буду все новые поля + поля по умолчанию
-// 3. Вывести в консоль новый объект
-// 4. Положить новый элемент в массив matches (spread) 
-// 5*. Обернуть перебор цикла 50-56 в функцию
