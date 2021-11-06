@@ -61,7 +61,7 @@
     <div class="modal">
       <div class="modal__title">Create new Match</div>
       <span onclick="cancel()" class="modal__cross">&times;</span>
-      <form onsubmit="onMatchCreate(event)">
+      <form onsubmit="onCreateMatch(event)">
         <div class="modal__match-form">
           <div>
             <label for="title" class="input-name">Match name:</label>
@@ -73,15 +73,15 @@
           </div>
           <div>
             <label for="logoUrl" class="input-name">Match logo:</label>
-            <input id="logoUrl" type="text" placeholder="Upload the match logo" required />
+            <input id="logoUrl" type="text" placeholder="Upload the match logo" />
           </div>
           <div>
             <label for="maxPlayers" class="input-name">Number of players:</label>
-            <input id="maxPlayers" type="text" placeholder="Enter the number of players" required />
+            <input id="maxPlayers" type="number" placeholder="Enter the number of players" required />
           </div>
           <div class="description">
             <label for="description" class="input-name">Description:</label>
-            <textarea id="description" placeholder="Enter the description of the match" required></textarea>
+            <textarea id="description" placeholder="Enter the description of the match"></textarea>
           </div>
         </div>
         <div class="modal__match-buttons">
@@ -93,7 +93,6 @@
   </div>
 
   <script src="./js/main.js"></script>
-  <script src="./js/modal.js"></script>
 
 </body>
 
