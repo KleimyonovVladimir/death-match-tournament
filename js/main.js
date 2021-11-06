@@ -34,6 +34,7 @@ const cancel = () => overlay.style.display = "none";
 const initialMatches = [
   {
     id: guid(),
+    creator: "Vladimir",
     logoUrl: "./img/matches/logo-1.png",
     date: "Sep 01 at 09:00 PM",
     title: "CS:GO Eleague Premier 2021",
@@ -45,7 +46,8 @@ const initialMatches = [
   },
   {
     id: guid(),
-    logoUrl: "./img/matches/logo-1.png",
+    creator: "Gribnik",
+    logoUrl: "./img/matches/logo-2.png",
     date: "Oct 01 at 9:00 PM",
     title: "CS:GO Eleague Premier",
     rate: "Amateur",
@@ -65,7 +67,7 @@ const localMatches = JSON.parse(localStorage.getItem(LS_MATCHES_KEY))
 // RENDER MATCHES ----------------------
 
 const generateMatchHtml = (match) => {
-  const { logoUrl, date, title, rate, map, description, players, maxPlayers } = match
+  const { id, logoUrl, date, title, rate, map, description, players, maxPlayers } = match
 
   return `
   <li class="match">
@@ -73,7 +75,7 @@ const generateMatchHtml = (match) => {
       ${logoUrl ? `<div class="match__logo-wrap"><img src="${logoUrl}" alt="${title}"></div>` : ''}
       <div class="match__info">
         <span class="match__date">${date}</span>
-        <h3 class="match__title"><a href="match-details.html">${title}</a></h3>
+        <h3 class="match__title"><a href="match-details.html?id=${id}">${title}</a></h3>
         <div class="rating-status ${rate.toLowerCase()}">${rate}</div>
         <div class="match__map">Map: <span>${map}</span></div>
       </div>
@@ -81,7 +83,7 @@ const generateMatchHtml = (match) => {
     <div class="match__description">${description}</div>
     <div class="match__footer">
       <div class="match__players">${(players || []).length}/${maxPlayers} Signed</div>
-      <a href="match-details.html" class="match__details-arrow">
+      <a href="match-details.html?id=${id}" class="match__details-arrow">
         <img src="./img/arrow-right.png" alt="Arrow Right">
       </a>
     </div>
@@ -124,6 +126,7 @@ const onCreateMatch = (event) => {
 
   const match = {
     id: guid(),
+    creator: "Gribhik",
     logoUrl,
     date: "Sep 01 at 09:00 PM",
     title,
@@ -143,3 +146,5 @@ const onCreateMatch = (event) => {
   cancel()
   clearMatchInputs()
 }
+
+// DELETE MATCH -----------------------
