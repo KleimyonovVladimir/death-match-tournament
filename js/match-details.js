@@ -33,7 +33,7 @@ const generateMatchDetailsHtml = (match) => {
       <button class="button outlined">
         Edit
       </button>
-      <a href="#" class="match-sidebar__delete-button">
+      <a href="#" onclick = "onDeleteMatch()" class="match-sidebar__delete-button">
         <img src="./img/delete-icon.png" alt="Delete">
         Delete Match
       </a>
@@ -56,3 +56,19 @@ const renderMatchDetails = () => {
 }
 
 renderMatchDetails()
+
+// DELETE MATCH -----------------------
+
+const onDeleteMatch = () => {
+  if (window.confirm("Do you really want to delete match?")) {
+    const matches = JSON.parse(localStorage.getItem(LS_MATCHES_KEY))
+
+    const copyMatches = [...matches]
+    const matchIndex = copyMatches.findIndex(({ id }) => id === params.id);
+
+    copyMatches.splice(matchIndex, 1);
+
+    localStorage.setItem(LS_MATCHES_KEY, JSON.stringify(copyMatches))
+    parent.location = 'index.html';
+  }
+}
