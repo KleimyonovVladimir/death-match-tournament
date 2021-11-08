@@ -20,13 +20,16 @@ const create = document.getElementById("create-match");
 
 create.onclick = () => overlay.style.display = "block";
 
-document.onclick = (event) => {
-  if (event.target == overlay) {
-    overlay.style.display = "none";
-  }
+const cancel = () => {
+  overlay.style.display = "none";
+  clearMatchInputs()
 }
 
-const cancel = () => overlay.style.display = "none";
+document.onclick = (event) => {
+  if (event.target == overlay) {
+    cancel()
+  }
+}
 
 
 // INITIAL SETTINGS ----------------------
@@ -146,5 +149,3 @@ const onCreateMatch = (event) => {
   cancel()
   clearMatchInputs()
 }
-
-// DELETE MATCH -----------------------
