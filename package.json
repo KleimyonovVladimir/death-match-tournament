@@ -1,0 +1,28 @@
+{
+  "name": "death-match-tournament",
+  "version": "1.0.0",
+  "description": "This is a test application for learning technologies such as: **_HTML, CSS, JS, Material UI, SPA, React/Redux, Saga, Firebase, Jest._** and more.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KleimyonovVladimir/death-match-tournament.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KleimyonovVladimir/death-match-tournament/issues"
+  },
+  "homepage": "https://github.com/KleimyonovVladimir/death-match-tournament#readme",
+  "devDependencies": {
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier-eslint": "^13.0.0"
+  }
+}
