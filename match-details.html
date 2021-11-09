@@ -58,8 +58,42 @@
     </div>
   </div>
 
+  <div id="edit-overlay" class="overlay">
+    <div class="modal">
+      <div class="modal__title">Edit the Match</div>
+      <span onclick="cancelEditMatchModal()" class="modal__cross">&times;</span>
+      <form onsubmit="onEditConfirm(event)">
+        <div class="modal__match-form">
+          <div>
+            <label for="title" class="input-name">Match name:</label>
+            <input id="title" type="text" placeholder="Enter the match name" />
+          </div>
+          <div>
+            <label for="map" class="input-name">Map:</label>
+            <input id="map" type="text" placeholder="Enter the map name" />
+          </div>
+          <div>
+            <label for="logoUrl" class="input-name">Match logo:</label>
+            <input id="logoUrl" type="text" placeholder="Upload the match logo" />
+          </div>
+          <div>
+            <label for="maxPlayers" class="input-name">Number of players:</label>
+            <input id="maxPlayers" type="number" placeholder="Enter the number of players" />
+          </div>
+          <div class="description">
+            <label for="description" class="input-name">Description:</label>
+            <textarea id="description" placeholder="Enter the description of the match"></textarea>
+          </div>
+        </div>
+        <div class="modal__match-buttons">
+          <button onclick="cancelEditMatchModal()" type="button" class="button outlined close">Cancel</button>
+          <button type="submit" class="button button-primary">Finish</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <script src="./js/main.js"></script>
-  <script src="./js/match-details.js"></script>
 </body>
 
 </html>

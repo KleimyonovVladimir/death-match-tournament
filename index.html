@@ -57,10 +57,10 @@
     </div>
   </div>
 
-  <div id="modal-overlay" class="overlay">
+  <div id="create-overlay" class="overlay">
     <div class="modal">
       <div class="modal__title">Create new Match</div>
-      <span onclick="cancel()" class="modal__cross">&times;</span>
+      <span onclick="cancelCreateMatchModal()" class="modal__cross">&times;</span>
       <form onsubmit="onCreateMatch(event)">
         <div class="modal__match-form">
           <div>
@@ -85,7 +85,7 @@
           </div>
         </div>
         <div class="modal__match-buttons">
-          <button onclick="cancel()" type="button" class="button outlined close">Cancel</button>
+          <button onclick="cancelCreateMatchModal()" type="button" class="button outlined close">Cancel</button>
           <button type="submit" class="button button-primary">Create</button>
         </div>
       </form>
