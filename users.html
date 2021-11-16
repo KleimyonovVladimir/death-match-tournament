@@ -22,7 +22,7 @@
         <nav class="header-menu">
           <ul class="header-list">
             <li class="header-list__item">
-              <a href="index.html" class="header-list__link active">
+              <a href="index.html" class="header-list__link">
                 <img src="./img/earth.png" alt="Earth" class="header-list__icon">
                 All matches
               </a>
@@ -34,7 +34,7 @@
               </a>
             </li>
             <li class="header-list__item">
-              <a href="users.html" class="header-list__link">
+              <a href="#" class="header-list__link active">
                 <img src="./img/users.png" alt="Users" class="header-list__icon">
                 Users
               </a>
@@ -57,49 +57,56 @@
   </header>
   <div class="app">
     <div class="container">
-      <div class="matches">
-        <ul id="matches__list" class="matches__list"></ul>
+      <div class="users">
+        <button id="create-user" class="button button-primary">Create User</button>
+        <table class="users__table" id="users__table">
+          <thead class="users__table-head">
+            <tr>
+              <th>Nr.</th>
+              <th>Player</th>
+              <th>Rate</th>
+              <th>Country</th>
+              <th>Last visited</th>
+              <th>Played hours</th>
+              <th>Deletion request</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
 
-  <div id="create-overlay" class="overlay">
+  <div id="create-user-overlay" class="overlay">
     <div class="modal">
-      <div class="modal__title">Create new Match</div>
-      <span onclick="cancelCreateMatchModal()" class="modal__cross">&times;</span>
-      <form onsubmit="onCreateMatch(event)">
-        <div class="modal__match-form">
+      <div class="modal__title">Create new Player</div>
+      <span onclick="cancelCreateUserModal()" class="modal__cross">&times;</span>
+      <form onsubmit="onCreateUser(event)">
+        <div class="modal__user-form">
           <div>
-            <label for="title" class="input-name">Match name:</label>
-            <input id="title" type="text" placeholder="Enter the match name" required />
-          </div>
-          <div>
-            <label for="map" class="input-name">Map:</label>
-            <input id="map" type="text" placeholder="Enter the map name" required />
+            <label for="playerName" class="input-name">Player name:</label>
+            <input id="playerName" type="text" placeholder="Enter the player's name" required />
           </div>
           <div>
-            <label for="logoUrl" class="input-name">Match logo:</label>
-            <input id="logoUrl" type="text" placeholder="Upload the match logo" />
+            <label for="playerAvatar" class="input-name">Avatar</label>
+            <input id="playerAvatar" type="text" placeholder="Upload the player's avatar" required />
           </div>
           <div>
-            <label for="maxPlayers" class="input-name">Number of players:</label>
-            <input id="maxPlayers" type="number" placeholder="Enter the number of players" required />
+            <label for="rate" class="input-name">Rate</label>
+            <input id="rate" type="text" placeholder="Enter the player's rate" required />
           </div>
-          <div class="description">
-            <label for="description" class="input-name">Description:</label>
-            <textarea id="description" placeholder="Enter the description of the match"></textarea>
+          <div>
+            <label for="country" class="input-name">Country</label>
+            <input id="country" type="text" placeholder="Enter player's country" />
           </div>
-        </div>
-        <div class="modal__buttons">
-          <button onclick="cancelCreateMatchModal()" type="button" class="button outlined close">Cancel</button>
-          <button type="submit" class="button button-primary">Create</button>
-        </div>
+          <div class="modal__buttons">
+            <button onclick="cancelCreateUserModal()" type="button" class="button outlined close">Cancel</button>
+            <button type="submit" class="button button-primary">Create</button>
+          </div>
       </form>
     </div>
   </div>
 
   <script src="./js/main.js"></script>
-
 </body>
-
-</html>

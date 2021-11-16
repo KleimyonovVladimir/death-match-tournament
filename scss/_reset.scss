@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 html {
   height: 100%;
@@ -77,4 +77,8 @@ textarea {
 }
 section {
   height: 100%;
+}
+th,
+td {
+  padding: 5px 25px;
 }
