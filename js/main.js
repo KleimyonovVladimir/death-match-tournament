@@ -427,7 +427,6 @@ const onDeleteUser = (event) => {
     const userIndex = copyUsers.findIndex(({ id }) => id === event.target.dataset.userid)
 
     copyUsers.splice(userIndex, 1)
-    console.log('🚀 ~ onDeleteUser ~ userIndex', userIndex)
 
     localStorage.setItem(LS_USERS_KEY, JSON.stringify(copyUsers))
 
