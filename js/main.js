@@ -1,4 +1,5 @@
 const LS_MATCHES_KEY = 'LocalStorage/Matches'
+const LS_USERS_KEY = 'LocalStorage/Users'
 
 // HELPERS -------------------------------
 
@@ -15,13 +16,24 @@ const guid = () => {
 // MODAL ---------------------------------
 
 const createOverlay = document.getElementById('create-overlay')
+const createUserOverlay = document.getElementById('create-user-overlay')
 const editOverlay = document.getElementById('edit-overlay')
-const create = document.getElementById('create-match')
+const createMatch = document.getElementById('create-match')
+const createUser = document.getElementById('create-user')
 
-create.onclick = () => {
-  createOverlay.style.display = 'block'
+createMatch &&
+  (createMatch.onclick = () => {
+    createOverlay.style.display = 'block'
+  })
+createUser &&
+  (createUser.onclick = () => {
+    createUserOverlay.style.display = 'block'
+  })
+
+const cancelCreateUserModal = () => {
+  createUserOverlay.style.display = 'none'
+  clearUsersInputs()
 }
-
 const cancelCreateMatchModal = () => {
   createOverlay.style.display = 'none'
   clearMatchInputs()
@@ -30,6 +42,23 @@ const cancelCreateMatchModal = () => {
 const cancelEditMatchModal = () => {
   editOverlay.style.display = 'none'
   clearMatchInputs()
+}
+
+// CLEAR INPUTS --------------------------
+
+const clearMatchInputs = () => {
+  document.getElementById('logoUrl').value = ''
+  document.getElementById('title').value = ''
+  document.getElementById('map').value = ''
+  document.getElementById('description').value = ''
+  document.getElementById('maxPlayers').value = ''
+}
+
+const clearUsersInputs = () => {
+  document.getElementById('playerName').value = ''
+  document.getElementById('playerAvatar').value = ''
+  document.getElementById('rate').value = ''
+  document.getElementById('country').value = ''
 }
 
 // INITIAL SETTINGS ----------------------
@@ -111,14 +140,6 @@ renderMatches(localMatches)
 
 // ADD MATCH ----------------------
 
-const clearMatchInputs = () => {
-  document.getElementById('logoUrl').value = ''
-  document.getElementById('title').value = ''
-  document.getElementById('map').value = ''
-  document.getElementById('description').value = ''
-  document.getElementById('maxPlayers').value = ''
-}
-
 const onCreateMatch = (event) => {
   event.preventDefault()
 
@@ -185,7 +206,7 @@ const generateMatchDetailsHtml = (match) => {
       <button onclick="onEditMatch()" class="button outlined">
         Edit
       </button>
-      <a href="#" onclick = "onDeleteMatch(event)" class="match-sidebar__delete-button">
+      <a href="#" onclick = "onDeleteMatch(event)" class="match-sidebar__delete-button delete-button">
         <img src="./img/delete-icon.png" alt="Delete">
         Delete Match
       </a>
@@ -227,6 +248,8 @@ const onDeleteMatch = (event) => {
     parent.location = 'index.html'
   }
 }
+
+// EDIT MATCH -----------------------
 
 const onEditMatch = () => {
   editOverlay.style.display = 'block'
@@ -272,4 +295,142 @@ const onEditConfirm = (event) => {
 
   renderMatchDetails()
   cancelEditMatchModal()
+}
+//USERS MODAL
+
+const initialUsers = [
+  {
+    id: guid(),
+    playerName: 'Roanokay',
+    playerAvatar: './img/users/user-1.png',
+    rate: 'Amateur',
+    country: 'Latvia',
+    lastVisited: null,
+    playedHours: 327,
+    deletionRequest: true,
+  },
+  {
+    id: guid(),
+    playerName: '*Narrow_Victory*',
+    playerAvatar: './img/users/user-2.png',
+    rate: 'Expert',
+    country: 'Poland',
+    lastVisited: 3,
+    playedHours: 9999,
+    deletionRequest: false,
+  },
+]
+
+if (!JSON.parse(localStorage.getItem(LS_USERS_KEY))) {
+  localStorage.setItem(LS_USERS_KEY, JSON.stringify(initialUsers))
+}
+
+const localUsers = JSON.parse(localStorage.getItem(LS_USERS_KEY))
+
+// RENDER USERS ----------------------
+
+const generateUserHtml = (user, index) => {
+  const { id, playerName, playerAvatar, rate, country, lastVisited, playedHours, deletionRequest } =
+    user
+
+  return `<tr class="users__table-row">
+  <td>${index + 1}</td>
+  <td>
+    <div class="users__nickname">
+      <div class="users__avatar">
+        <img src="${playerAvatar}" alt="${playerName}">
+      </div>
+      ${playerName}
+    </div>
+  </td>
+  <td>
+    <span class="rating-status ${rate.toLowerCase()}">
+      ${rate}
+    </span>
+  </td>
+  <td>${country}</td>
+  <td>
+      <span class="users__status ${!lastVisited ? 'online' : ''}">
+      ${lastVisited ? `${lastVisited} h` : 'Online'}</span>
+  </td> 
+  <td>${playedHours} h</td>
+  <td>
+  ${
+    deletionRequest
+      ? `<a href="#" data-userId='${id}' onclick='onDeleteUser(event)' class="delete-button">
+    <img src="./img/delete-icon.png" alt="Delete">
+    Delete User
+  </a>`
+      : ''
+  }
+  </td>
+  </tr>`
+}
+
+const renderUsers = (users) => {
+  const usersList = document.getElementById('users__table')
+  const tableBody = usersList.querySelector('tbody')
+
+  if (tableBody) {
+    tableBody.innerHTML = ''
+
+    users.forEach((user, index) => {
+      const htmlUser = generateUserHtml(user, index)
+
+      tableBody.innerHTML += htmlUser
+    })
+  }
+}
+renderUsers(localUsers)
+
+// ADD MATCH ----------------------
+
+const onCreateUser = (event) => {
+  event.preventDefault()
+
+  const { value: playerName } = document.getElementById('playerName')
+  const { value: playerAvatar } = document.getElementById('playerAvatar')
+  const { value: rate } = document.getElementById('rate')
+  const { value: country } = document.getElementById('country')
+
+  const user = {
+    id: guid(),
+    playerName,
+    playerAvatar,
+    rate,
+    country,
+    lastVisited: Math.floor(Math.random() * 777),
+    playedHours: Math.floor(Math.random() * 777),
+    deletionRequest: false,
+  }
+
+  const oldUsers = JSON.parse(localStorage.getItem(LS_USERS_KEY))
+  const newUsers = [...oldUsers, user]
+
+  localStorage.setItem(LS_USERS_KEY, JSON.stringify(newUsers))
+
+  renderUsers(newUsers)
+
+  cancelCreateUserModal()
+}
+
+// DELETE USER -----------------------
+
+const onDeleteUser = (event) => {
+  event.preventDefault()
+
+  if (window.confirm('Do you really want to delete this player?')) {
+    const users = JSON.parse(localStorage.getItem(LS_USERS_KEY))
+
+    const copyUsers = [...users]
+
+    const userIndex = copyUsers.findIndex(({ id }) => id === event.target.dataset.userid)
+
+    copyUsers.splice(userIndex, 1)
+    console.log('🚀 ~ onDeleteUser ~ userIndex', userIndex)
+
+    localStorage.setItem(LS_USERS_KEY, JSON.stringify(copyUsers))
+
+    renderUsers(copyUsers)
+  }
 }

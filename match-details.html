@@ -34,8 +34,14 @@
               </a>
             </li>
             <li class="header-list__item">
+              <a href="users.html" class="header-list__link">
+                <img src="./img/users.png" alt="Users" class="header-list__icon">
+                Users
+              </a>
+            </li>
+            <li class="header-list__item">
               <a href="#" class="header-list__link">
-                <img src="./img/user.png" alt="User" class="header-list__icon">
+                <img src="./img/profile.png" alt="User" class="header-list__icon">
                 Profile
               </a>
             </li>
@@ -53,7 +59,68 @@
     <div class="container">
       <div class="single-match">
         <div id="match-sidebar" class="match-sidebar"></div>
-        <div class="table"></div>
+        <div class="table">
+          <table class="users__table">
+            <thead class="users__table-head">
+              <tr>
+                <th>Nr.</th>
+                <th>Player</th>
+                <th>Rate</th>
+                <th>Country</th>
+                <th>Last visited</th>
+                <th>Played hours</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="users__table-row">
+                <td>1</td>
+                <td>
+                  <div class="users__nickname">
+                    <div class="users__avatar">
+                      <img src="./img/users/user-1.png" alt="User">
+                    </div>
+                    Roanokay
+                  </div>
+                </td>
+                <td>
+                  <span class="rating-status amateur">
+                    Amateur
+                  </span>
+                </td>
+                <td>Latvia</td>
+                <td>
+                  <span class="users__status online">
+                    Online
+                  </span>
+                </td>
+                <td>327 h</td>
+              </tr>
+              <tr class="users__table-row">
+                <td>2</td>
+                <td>
+                  <div class="users__nickname">
+                    <div class="users__avatar">
+                      <img src="./img/users/user-2.png" alt="User">
+                    </div>
+                    *Narrow_Victory*
+                  </div>
+                </td>
+                <td>
+                  <span class="rating-status expert">
+                    Expert
+                  </span>
+                </td>
+                <td>Poland</td>
+                <td>
+                  <span class="users__status">
+                    3 h
+                  </span>
+                </td>
+                <td>9999 h</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
@@ -85,7 +152,7 @@
             <textarea id="description" placeholder="Enter the description of the match"></textarea>
           </div>
         </div>
-        <div class="modal__match-buttons">
+        <div class="modal__buttons">
           <button onclick="cancelEditMatchModal()" type="button" class="button outlined close">Cancel</button>
           <button type="submit" class="button button-primary">Finish</button>
         </div>

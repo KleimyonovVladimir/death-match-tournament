@@ -67,3 +67,20 @@
     opacity: 1;
   }
 }
+.delete-button {
+  display: flex;
+  align-items: center;
+  color: $red-color;
+  filter: grayscale(1);
+
+  &:hover {
+    filter: grayscale(0);
+  }
+
+  img {
+    margin-right: 8px;
+  }
+}
+.online {
+  color: $online-status;
+}

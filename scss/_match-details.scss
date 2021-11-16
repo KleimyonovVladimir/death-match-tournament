@@ -2,6 +2,7 @@
   height: 100%;
   display: grid;
   grid-template-columns: 550px 1fr;
+  grid-gap: 50px;
 }
 
 .match {
@@ -53,19 +54,7 @@
     }
 
     &__delete-button {
-      display: flex;
-      align-items: center;
       margin-left: 30px;
-      color: $red-color;
-      filter: grayscale(1);
-
-      &:hover {
-        filter: grayscale(0);
-      }
-
-      img {
-        margin-right: 8px;
-      }
     }
   }
 }
