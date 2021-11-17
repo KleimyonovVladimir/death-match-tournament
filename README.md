@@ -14,4 +14,4 @@ $ git clone https://github.com/KleimyonovVladimir/death-match-tournament.git
 
 2. Install dependencies: `yarn` or `npm install`
 
-3. Start the dev server: `yarn start` or `npm start`
+3. Start the dev server: open `index.html` in browser
