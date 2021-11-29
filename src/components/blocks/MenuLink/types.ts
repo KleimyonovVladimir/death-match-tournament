@@ -1,5 +1,5 @@
 export interface IMenuLink {
   title: string;
-  imgLink: string;
+  icon: string;
   link: string;
 }

@@ -1,3 +1,4 @@
 export interface IAvatar {
-  avatarUrl: string;
+  url: string;
+  className: string;
 }

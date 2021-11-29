@@ -23,15 +23,15 @@ const Header = () => {
           </Link>
           <nav className="header__navigation navigation">
             <ul className="navigation__list">
-              <MenuLink imgLink={earthIcon} title="All matches" link="/all-matches" />
-              <MenuLink imgLink={starIcon} title="My matches" link="/my-matches" />
-              <MenuLink imgLink={usersIcon} title="Users" link="/users" />
-              <MenuLink imgLink={profileIcon} title="Profile" link="/profile" />
+              <MenuLink icon={earthIcon} title="All matches" link="/all-matches" />
+              <MenuLink icon={starIcon} title="My matches" link="/my-matches" />
+              <MenuLink icon={usersIcon} title="Users" link="/users" />
+              <MenuLink icon={profileIcon} title="Profile" link="/profile" />
             </ul>
           </nav>
           <div className="header__profile profile">
             <RatingStatus status="Organizer" />
-            <Avatar avatarUrl={avatarImage} />
+            <Avatar url={avatarImage} className="profile__image" />
             <div className="header__actions">
               <Button text="Create" />
             </div>
