@@ -1,0 +1,16 @@
+@import "styles/variables";
+
+%center-block-shared {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+%buttons-styles-shared {
+  color: $white;
+  border-radius: 5px;
+  padding: 0 30px;
+  font-size: 16px;
+  transition: 0.2s;
+  height: 50px;
+}

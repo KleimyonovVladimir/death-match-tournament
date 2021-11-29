@@ -1,0 +1,32 @@
+@import "styles/variables";
+
+.header {
+  background-color: $background-color;
+  padding: 16px 0;
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+  }
+  &__profile {
+    display: flex;
+    align-items: center;
+    width: min-content;
+    margin-left: auto;
+  }
+  &__actions {
+    margin-left: 30px;
+  }
+}
+.navigation {
+  &__list {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+  }
+  &__icon {
+    margin-right: 10px;
+  }
+}
+ 

@@ -1,0 +1,23 @@
+@import "styles/variables";
+
+.navigation{
+  &__item {
+    width: max-content;
+    margin-right: 55px;
+
+    &:last-child() {
+      margin-right: 0;
+    }
+  }
+  &__link {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    opacity: 0.4;
+
+    &:hover,
+    &.active {
+      opacity: 1;
+    }
+  }
+}

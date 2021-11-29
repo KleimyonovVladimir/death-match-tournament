@@ -1,0 +1,52 @@
+@import "styles/variables";
+
+
+.logo {
+  background-repeat: no-repeat;
+  width: 31px;
+  height: 22px;
+}
+.input-name {
+  display: inline-block;
+  margin-bottom: 5px;
+  color: $label-color;
+}
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 50px;
+  height: 100%;
+}
+
+.app {
+  padding: 40px 0;
+  height: calc(100% - 82px);
+}
+.divider {
+  border-bottom: 1px solid;
+}
+.outlined {
+  border: 1px solid $font-color;
+  opacity: 0.4;
+  background: transparent;
+  &:hover {
+    opacity: 1;
+  }
+}
+.delete-button {
+  display: flex;
+  align-items: center;
+  color: $red-color;
+  filter: grayscale(1);
+
+  &:hover {
+    filter: grayscale(0);
+  }
+
+  img {
+    margin-right: 8px;
+  }
+}
+.online {
+  color: $online-status;
+}

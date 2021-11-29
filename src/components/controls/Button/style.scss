@@ -1,0 +1,16 @@
+@import "styles/variables";
+@import "styles/extend";
+
+
+.button {
+ @extend %buttons-styles-shared;
+
+  &_primary {
+    background: $primary-color;
+    position: relative;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}
