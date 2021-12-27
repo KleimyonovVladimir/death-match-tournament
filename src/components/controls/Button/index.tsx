@@ -1,8 +1,9 @@
-import { IButton } from './types';
-import './style.scss';
+import { IProps } from './types'
 
-const Button = ({ text }: IButton) => {
-  return <button className="button button_primary">{text}</button>;
-};
+import './style.scss'
 
-export default Button;
+const Button = ({ text }: IProps) => {
+  return <button className="button button_primary">{text}</button>
+}
+
+export default Button

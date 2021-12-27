@@ -1,4 +1,4 @@
-export interface IAvatar {
-  url: string;
-  className: string;
+export interface IProps {
+  url: string
+  className: string
 }

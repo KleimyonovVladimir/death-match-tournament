@@ -1,3 +1,5 @@
-export interface IRatingStatus {
-  status: 'Novice' | 'Expert' | 'All' | 'Organizer' | 'Amateur';
+import { TUserStatus } from 'types/status'
+
+export interface IProps {
+  status: TUserStatus
 }

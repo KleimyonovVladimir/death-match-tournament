@@ -1,5 +1,5 @@
-export interface IMenuLink {
-  title: string;
-  icon: string;
-  link: string;
+export interface IProps {
+  title: string
+  icon: string
+  link: string
 }

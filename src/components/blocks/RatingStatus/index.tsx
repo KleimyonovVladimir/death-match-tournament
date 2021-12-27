@@ -1,8 +1,9 @@
-import { IRatingStatus } from './type';
-import './style.scss';
+import { IProps } from './type'
 
-const RatingStatus = ({ status }: IRatingStatus) => {
-  return <div className={`rating-status ${status.toLowerCase()} profile__role`}>{status}</div>;
-};
+import './style.scss'
 
-export default RatingStatus;
+const RatingStatus = ({ status }: IProps) => {
+  return <div className={`rating-status rating-status_${status.toLowerCase()}`}>{status}</div>
+}
+
+export default RatingStatus

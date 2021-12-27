@@ -1,8 +1,7 @@
-import { IAvatar } from './type';
-import './style.scss';
+import { IProps } from './type'
 
-const Avatar = ({ url, className }: IAvatar) => {
-  return <img src={url} alt="Avatar" className={className} />;
-};
+const Avatar = ({ url, className }: IProps) => {
+  return <img src={url} alt="Avatar" className={className} />
+}
 
-export default Avatar;
+export default Avatar
