@@ -1,5 +1,4 @@
-@import "styles/variables";
-
+@import 'styles/variables';
 
 .logo {
   background-repeat: no-repeat;
@@ -18,35 +17,10 @@
   height: 100%;
 }
 
-.app {
+.content {
   padding: 40px 0;
   height: calc(100% - 82px);
 }
 .divider {
   border-bottom: 1px solid;
-}
-.outlined {
-  border: 1px solid $font-color;
-  opacity: 0.4;
-  background: transparent;
-  &:hover {
-    opacity: 1;
-  }
-}
-.delete-button {
-  display: flex;
-  align-items: center;
-  color: $red-color;
-  filter: grayscale(1);
-
-  &:hover {
-    filter: grayscale(0);
-  }
-
-  img {
-    margin-right: 8px;
-  }
-}
-.online {
-  color: $online-status;
 }

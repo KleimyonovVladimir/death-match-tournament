@@ -9,24 +9,45 @@
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
   }
+
+  &__navigation-list {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+  }
+  &__navigation-item {
+    width: max-content;
+    margin-right: 55px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  &__navigation-link {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    opacity: 0.4;
+
+    &:hover,
+    &.active {
+      opacity: 1;
+    }
+  }
+  &__navigation-icon {
+    margin-right: 10px;
+  }
   &__profile {
     display: flex;
     align-items: center;
     width: min-content;
     margin-left: auto;
   }
+  &__profile-image{
+    margin-left: 30px;
+  }
   &__actions {
     margin-left: 30px;
   }
+
 }
-.navigation {
-  &__list {
-    width: fit-content;
-    display: flex;
-    align-items: center;
-  }
-  &__icon {
-    margin-right: 10px;
-  }
-}
- 

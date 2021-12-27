@@ -10,19 +10,19 @@
   letter-spacing: 0.02em;
   width: fit-content;
   
-  &.organizer {
+  &_organizer {
     background-color: $organizer-status;
   }
-  &.novice {
+  &_novice {
     background-color: $novice-status;
   }
-  &.amateur {
+  &_amateur {
     background-color: $amateur-status;
   }
-  &.expert {
+  &_expert {
     background-color: $expert-status;
   }
-  &.all {
+  &_all {
     background-color: $input-color;
   }
 }

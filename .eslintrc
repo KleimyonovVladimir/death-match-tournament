@@ -51,8 +51,6 @@
     "no-param-reassign": 2,
     "no-empty-pattern": 1,
     "no-shadow": 0,
-    "prettier/prettier": [2, {
-      "endOfLine": "auto"
-    }]
+    "prettier/prettier": 0
   }
 }
