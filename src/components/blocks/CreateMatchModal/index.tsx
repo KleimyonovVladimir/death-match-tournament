@@ -1,11 +1,12 @@
-import { IProps } from 'components/blocks/CreateMatchModal/type'
-import { localStorageKeys } from 'constants/localStorage'
-import { IMatchBase } from 'types/matches'
-import Button from 'components/controls/Button'
-import Input from 'components/controls/Input'
-import { guid } from 'helpers/guid'
 import { useState } from 'react'
 
+import { guid } from 'helpers/guid'
+import { IMatchBase } from 'types/matches'
+import { localStorageKeys } from 'constants/localStorage'
+import Button from 'components/controls/Button'
+import Input from 'components/controls/Input'
+
+import { IProps } from './type'
 import './style.scss'
 
 const initialMatch = {
