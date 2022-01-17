@@ -1,15 +1,18 @@
 import { TUserStatus } from 'types/status'
 import { IUser } from 'types/users'
 
-export interface IMatch {
-  id: string
-  creator?: string
-  logoUrl: string
-  date: string
-  title: string
-  rate: TUserStatus
+export interface IMatchBase {
   map: string
+  logoUrl: string
+  title: string
   description: string
-  players: IUser[]
   maxPlayers: number
+}
+
+export interface IMatch extends IMatchBase {
+  id: string
+  date: string
+  rate: TUserStatus
+  players: IUser[]
+  creator?: string
 }
