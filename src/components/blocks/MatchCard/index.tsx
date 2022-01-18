@@ -25,7 +25,7 @@ const MatchCard = ({ match }: IProps) => {
       <div className="match__description">{description}</div>
       <div className="match__footer">
         <div className="match__players">
-          {players.length}/{maxPlayers} Signed
+          {(players || []).length}/{maxPlayers} Signed
         </div>
       </div>
     </li>

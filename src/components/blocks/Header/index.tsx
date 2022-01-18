@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 
 import RatingStatus from 'components/blocks/RatingStatus'
 import MenuLink from 'components/blocks/MenuLink'
-import Button from 'components/controls/Button'
 import Avatar from 'components/blocks/Avatar'
 import avatarImage from 'assets/avatars/avatar1.png'
 import profileIcon from 'assets/profile.png'
@@ -14,6 +13,12 @@ import starIcon from 'assets/star.png'
 import './style.scss'
 
 const Header = () => {
+  const menuLinkClasses = {
+    li: 'header__navigation-item',
+    link: 'header__navigation-link',
+    image: 'header__navigation-icon',
+  }
+
   return (
     <header className="header">
       <div className="container">
@@ -23,18 +28,25 @@ const Header = () => {
           </Link>
           <nav className="header__navigation">
             <ul className="header__navigation-list">
-              <MenuLink icon={earthIcon} title="All matches" link="/" />
-              <MenuLink icon={starIcon} title="My matches" link="/my-matches" />
-              <MenuLink icon={usersIcon} title="Users" link="/users" />
-              <MenuLink icon={profileIcon} title="Profile" link="/profile" />
+              <MenuLink icon={earthIcon} title="All matches" link="/" classes={menuLinkClasses} />
+              <MenuLink
+                icon={starIcon}
+                title="My matches"
+                link="/my-matches"
+                classes={menuLinkClasses}
+              />
+              <MenuLink icon={usersIcon} title="Users" link="/users" classes={menuLinkClasses} />
+              <MenuLink
+                icon={profileIcon}
+                title="Profile"
+                link="/profile"
+                classes={menuLinkClasses}
+              />
             </ul>
           </nav>
           <div className="header__profile">
             <RatingStatus status="Organizer" />
             <Avatar url={avatarImage} className="header__profile-image" />
-            <div className="header__actions">
-              <Button text="Create" />
-            </div>
           </div>
         </div>
       </div>
