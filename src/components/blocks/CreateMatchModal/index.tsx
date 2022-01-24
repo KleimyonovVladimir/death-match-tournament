@@ -21,12 +21,12 @@ const CreateMatchModal = ({ title, open, onClose, setMatches }: IProps) => {
   const [match, setMatch] = useState<IMatchBase>(initialMatch)
 
   const handleField = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { id, value } = event.target
+    const { name, value } = event.target
 
     setMatch(prevState => {
       return {
         ...prevState,
-        [id]: value,
+        [name]: value,
       }
     })
   }
@@ -51,63 +51,73 @@ const CreateMatchModal = ({ title, open, onClose, setMatches }: IProps) => {
 
     setMatches(newMatches)
 
+    handleModalClose()
+  }
+
+  const handleModalClose = () => {
     onClose()
+    setMatch(initialMatch)
   }
 
   return (
-    <div id="create-overlay" className={open ? 'overlay open' : 'overlay'}>
+    <div id="create-overlay" className={open ? 'overlay overlay_opened ' : 'overlay'}>
       <div className="modal">
         <div className="modal__title">{title}</div>
-        <span className="modal__cross" onClick={onClose}>
+        <span className="modal__cross" onClick={handleModalClose}>
           &times;
         </span>
         <form onSubmit={handleApply}>
           <div className="modal__match-form">
             <Input
-              id="title"
+              id="input-title"
               label="Match name:"
               type="text"
               placeholder="Enter the match name"
               onChange={handleField}
               value={match.title}
               required
+              name="title"
             />
             <Input
-              id="map"
+              id="input-map"
               label="Map:"
               type="text"
               placeholder="Enter the map name"
               onChange={handleField}
               value={match.map}
+              name="map"
             />
             <Input
-              id="logoUrl"
+              id="input-logoUrl"
               label="Match logo:"
               type="text"
               placeholder="Upload the match logo"
               onChange={handleField}
               value={match.logoUrl}
+              name="logoUrl"
             />
             <Input
-              id="maxPlayers"
+              id="input-maxPlayers"
               label="Number of players:"
               type="number"
               placeholder="Enter the number of players"
               onChange={handleField}
               value={match.maxPlayers}
+              name="maxPlayers"
             />
             <Input
               className="description"
-              id="description"
+              id="input-description"
               label="Description:"
               placeholder="Enter the description of the match"
               isTextarea
               onChange={handleField}
               value={match.description}
+              name="description"
             />
           </div>
           <div className="modal__buttons">
-            <Button text="Cancel" type="button" isCancel onClick={onClose} />
+            <Button text="Cancel" type="button" isCancel onClick={handleModalClose} />
             <Button text="Create" type="submit" />
           </div>
         </form>

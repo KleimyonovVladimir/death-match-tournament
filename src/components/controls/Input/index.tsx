@@ -1,12 +1,12 @@
 import { IProps } from 'components/controls/Input/type'
 
-const Input = ({ className, label, isTextarea, htmlFor, id, ...other }: IProps) => {
+const Input = ({ className, label, isTextarea, id, ...other }: IProps) => {
   return (
     <div className={className}>
-      <label htmlFor={htmlFor || id} className="input-name">
+      <label htmlFor={id} className="input-name">
         {label}
       </label>
-      {isTextarea ? <textarea {...other} /> : <input {...other} />}
+      {isTextarea ? <textarea id={id} {...other} /> : <input id={id} {...other} />}
     </div>
   )
 }

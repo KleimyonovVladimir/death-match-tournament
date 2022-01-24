@@ -4,9 +4,9 @@ export interface IProps {
   label: string
   type?: string
   placeholder: string
-  htmlFor?: string
   isTextarea?: boolean
   value?: string | number
   required?: boolean
+  name: string
   onChange?: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void
 }
