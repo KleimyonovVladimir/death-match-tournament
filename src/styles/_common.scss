@@ -23,11 +23,3 @@
 .divider {
   border-bottom: 1px solid;
 }
-.outlined {
-  border: 1px solid $font-color;
-  opacity: 0.4;
-  background: transparent;
-  &:hover {
-    opacity: 1;
-  }
-}
